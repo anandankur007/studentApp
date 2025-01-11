@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'userApp'
+    'userApp',
+    'product',
+    'order'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'userApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'userApp/Template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +83,21 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'studentDB',
+#         'CLIENT': {
+#             'host': 'mongodb+srv://ankur:ankur321@cluster0.0trdv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+#             # Optional settings below (you can omit them if you are using the default MongoDB settings)
+#             # 'username': 'your_username',
+#             # 'password': 'your_password',
+#             # 'authMechanism': 'SCRAM-SHA-1',  # or SCRAM-SHA-256 for MongoDB Atlas
+#         },
+#     }
+# }
+
 
 
 # Password validation
